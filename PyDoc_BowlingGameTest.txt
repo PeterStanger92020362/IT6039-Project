@@ -60,6 +60,12 @@ CLASSES
      |      @:parameter 20 times throw
      |      @:parameter 0 pins hit
      |      @:returns 0 score
+
+     |  test_perfect_game(self)
+     |      @param self:
+     |      @:parameter 12 times throw
+     |      @:parameter 10 pins hit
+     |      @:returns 300 score
      |  
      |  test_all_ones(self)
      |      @param self:
@@ -67,23 +73,23 @@ CLASSES
      |      @:parameter 1 pins hit
      |      @:returns 20 score
      |  
-     |  test_different_throws(self)
-     |      @param self:
-     |      @:parameter 5 times single throw
-     |      @:parameter different numbers of pins hit
-     |      @:returns 15 score
-     |  
-     |  test_for_one_strike(self)
-     |      @param self:
-     |      @:parameter 3 times throw including  one strike
-     |      @:parameter different number of pins hit
-     |      @:returns 22 score
-     |  
      |  test_for_spare(self)
      |      @param self:
      |      @:parameter 4 times single throw spare
      |      @:parameter different number of pins hit
      |      @:returns 24 score
+     
+     |  test_for_spare_no_bonus(self)
+     |      @param self:
+     |      @:parameter 4 times single throw spare
+     |      @:parameter different number of pins hit
+     |      @:returns 17 score  
+
+        test_for_one_strike(self)
+     |      @param self:
+     |      @:parameter 3 times throw including  one strike
+     |      @:parameter different number of pins hit
+     |      @:returns 22 score
      |  
      |  test_for_two_strike(self)
      |      @param self:
@@ -91,11 +97,6 @@ CLASSES
      |      @:parameter different number of pins hit
      |      @:returns 46 score
      |  
-     |  test_perfect_game(self)
-     |      @param self:
-     |      @:parameter 12 times throw
-     |      @:parameter 10 pins hit
-     |      @:returns 300 score
      |  
      |  ----------------------------------------------------------------------
      |  Methods inherited from unittest.case.TestCase:

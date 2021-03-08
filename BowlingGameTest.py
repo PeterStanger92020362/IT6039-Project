@@ -42,30 +42,9 @@ class BowlingGameTests(unittest.TestCase):
         @:returns 20 score
         """
         game = BowlingGame()
-        number_of_times = 20
-        pins = 1
-        game.throw_many(number_of_times, pins)
+        game.throw_many(20, 1)
         game.calculate_score()
         self.assertEqual(game.score, 20)
-
-    # adding a test method for different types of throws
-    def test_different_throws(self):
-        """
-        @param self:
-        @:parameter 5 times single throw
-        @:parameter different numbers of pins hit
-        @:returns 15 score
-        """
-        game = BowlingGame()
-        game.throw_one(6)
-        game.throw_one(0)
-        game.throw_one(7)
-        game.throw_one(0)
-        game.throw_one(2)
-        for _ in range(15):
-            game.throw_one(0)
-        game.calculate_score()
-        self.assertEqual(game.score, 15)
 
     # adding a test method for what is meant to be a spare
     def test_for_spare(self):
@@ -73,17 +52,33 @@ class BowlingGameTests(unittest.TestCase):
         @param self:
         @:parameter 4 times single throw spare
         @:parameter different number of pins hit
-        @:returns 24 score
+        @:returns 25 score
         """
         game = BowlingGame()
         game.throw_one(4)
         game.throw_one(6)
         game.throw_one(7)
-        game.throw_one(0)
-        for _ in range(16):
-            game.throw_one(0)
+        game.throw_one(1)
+        game.throw_many(16,0)
         game.calculate_score()
-        self.assertEqual(game.score, 24)
+        self.assertEqual(game.score, 25)
+
+    # adding a test method for what is meant to be a spare
+    def test_for_spare_no_bonus(self):
+        """
+        @param self:
+        @:parameter 4 times single throw spare
+        @:parameter different number of pins hit
+        @:returns 17 score
+        """
+        game = BowlingGame()
+        game.throw_one(4)
+        game.throw_one(6)
+        game.throw_one(0)
+        game.throw_one(7)
+        game.throw_many(16,0)
+        game.calculate_score()
+        self.assertEqual(game.score, 17)
 
     # adding test method to test with one strike
     def test_for_one_strike(self):
@@ -91,13 +86,13 @@ class BowlingGameTests(unittest.TestCase):
         @param self:
         @:parameter 3 times throw including  one strike
         @:parameter different number of pins hit
-        @:returns 22 score
+        @:returns 26 score
         """
         game = BowlingGame()
         game.throw_one(10)
         game.throw_one(3)
         game.throw_one(5)
-        game.throw_many(19, 0)
+        game.throw_many(16, 0)
         game.calculate_score()
         self.assertEqual(game.score, 26)
 
@@ -114,7 +109,7 @@ class BowlingGameTests(unittest.TestCase):
         game.throw_one(10)
         game.throw_one(4)
         game.throw_one(2)
-        game.throw_many(26, 0)
+        game.throw_many(14, 0)
         game.calculate_score()
         self.assertEqual(game.score, 46)
 
